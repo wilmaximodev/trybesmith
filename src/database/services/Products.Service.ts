@@ -1,5 +1,5 @@
 import { Optional } from 'sequelize';
-import productModel from '../models/product.model';
+import productModel, { ProductSequelizeModel } from '../models/product.model';
 import { Product } from '../../types/Product';
 import { ResponseData } from '../../types/responseData';
 
@@ -12,6 +12,12 @@ const create = async (product: Optional<Product, 'id'>): Promise<ResponseData> =
   };
 };
 
-export default {
+const findAll = async (): Promise<ProductSequelizeModel[]> => {
+  const data = await productModel.findAll();
+  return data;
+};
+
+export default { 
   create,
+  findAll,
 };
