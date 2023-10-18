@@ -14,6 +14,7 @@ const create = async (product: Optional<Product, 'id'>): Promise<ResponseData> =
 
 const findAll = async (): Promise<ProductSequelizeModel[]> => {
   const data = await productModel.findAll();
+  console.log(data);
   return data;
 };
 
