@@ -1,10 +1,12 @@
+import bcrypt from 'bcryptjs';
 import UserModel from '../models/user.model';
 import jwt from '../auth/jwt';
 
-const login = async (username: string, _password: string): Promise<string> => {
+const login = async (username: string, password: string): Promise<string | undefined> => {
   const user = await UserModel.findOne({ where: { username } });
-  if (!user) {
-    throw new Error('User not found');
+  
+  if (!user || !bcrypt.compareSync(password, user.dataValues.password)) {
+    return;
   }
   const token = jwt.generateJwtToken({
     id: user.dataValues.id,
