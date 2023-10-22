@@ -8,7 +8,7 @@ productRouter.post(
   '/',
   validateProduct.validateName,
   validateProduct.validatePrice,
-  ProductController.create
+  ProductController.create,
 );
 productRouter.get('/', ProductController.findAll);
 
