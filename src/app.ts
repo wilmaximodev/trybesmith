@@ -1,7 +1,7 @@
 import express from 'express';
-import productRouter from './Routes/ProductRoute';
-import orderRouter from './Routes/OrderRoute';
-import loginRouter from './Routes/LoginRoute';
+import productRouter from './database/Routes/ProductRoute';
+import orderRouter from './database/Routes/OrderRoute';
+import loginRouter from './database/Routes/LoginRoute';
 
 const app = express();
 

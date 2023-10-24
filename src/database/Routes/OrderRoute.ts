@@ -1,8 +1,9 @@
 import { Router } from 'express';
-import OrderController from '../database/controllers/Orders.Controller';
+import OrderController from '../controllers/Orders.Controller';
 
 const orderRouter = Router();
 
 orderRouter.get('/', OrderController.findAll);
+orderRouter.post('/', OrderController.create);
 
 export default orderRouter;

@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import { Payload } from '../../types/Payload';
 
-const secret = process.env.JWT_SECRET || 'secret';
+const secret = process.env.JWT_SECRET || 'mySecretKey';
 
 const generateJwtToken = (payload: Payload): string => {
   const token = jwt.sign(payload, secret, {
