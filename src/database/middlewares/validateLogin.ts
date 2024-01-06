@@ -4,7 +4,7 @@ const validateLogin = async (
   req: Request,
   res: Response,
   next: NextFunction,
-): Promise<Response | void> => {
+): Promise<Response | undefined> => {
   const { username, password } = req.body;
   if (!username || !password) {
     return res.status(400).json({
